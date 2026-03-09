@@ -14,6 +14,7 @@ class AuthTextField extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;
 
   const AuthTextField({
+    super.key,
     required this.controller,
     required this.focusNode,
     this.nextFocusNode,
