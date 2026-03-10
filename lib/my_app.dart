@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:testing_apis_of_imagify_app/view/kalmaScreen/kalma_screen_view_model.dart';
 import 'package:testing_apis_of_imagify_app/view/kalmaScreen/kamla_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,6 +8,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: KamlaScreen());
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => KalmaScreenViewModel()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: KamlaScreen(),
+      ),
+    );
   }
 }
