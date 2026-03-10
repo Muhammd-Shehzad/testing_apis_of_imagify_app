@@ -7,7 +7,7 @@ class KalmaModel {
   String? urduDesc;
   String? path;
   String? thumbnail;
-  Null? wspath;
+  Null wspath;
   String? version;
   Status? status;
   String? datecreated;
@@ -40,30 +40,28 @@ class KalmaModel {
     thumbnail = json['thumbnail'];
     wspath = json['wspath'];
     version = json['version'];
-    status = json['status'] != null
-        ? new Status.fromJson(json['status'])
-        : null;
+    status = json['status'] != null ? Status.fromJson(json['status']) : null;
     datecreated = json['datecreated'];
     thumbnailUrl = json['thumbnailUrl'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['chapter_id'] = this.chapterId;
-    data['name'] = this.name;
-    data['urdu_name'] = this.urduName;
-    data['desc'] = this.desc;
-    data['urdu_desc'] = this.urduDesc;
-    data['path'] = this.path;
-    data['thumbnail'] = this.thumbnail;
-    data['wspath'] = this.wspath;
-    data['version'] = this.version;
-    if (this.status != null) {
-      data['status'] = this.status!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['chapter_id'] = chapterId;
+    data['name'] = name;
+    data['urdu_name'] = urduName;
+    data['desc'] = desc;
+    data['urdu_desc'] = urduDesc;
+    data['path'] = path;
+    data['thumbnail'] = thumbnail;
+    data['wspath'] = wspath;
+    data['version'] = version;
+    if (status != null) {
+      data['status'] = status!.toJson();
     }
-    data['datecreated'] = this.datecreated;
-    data['thumbnailUrl'] = this.thumbnailUrl;
+    data['datecreated'] = datecreated;
+    data['thumbnailUrl'] = thumbnailUrl;
     return data;
   }
 }
@@ -80,8 +78,8 @@ class Status {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['type'] = type;
     data['data'] = this.data;
     return data;
   }
