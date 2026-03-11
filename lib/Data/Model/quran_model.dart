@@ -8,13 +8,13 @@ class QuranModel {
   QuranModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
+    data['status'] = status;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -32,21 +32,21 @@ class Data {
     if (json['surahs'] != null) {
       surahs = <Surahs>[];
       json['surahs'].forEach((v) {
-        surahs!.add(new Surahs.fromJson(v));
+        surahs!.add(Surahs.fromJson(v));
       });
     }
     edition = json['edition'] != null
-        ? new Edition.fromJson(json['edition'])
+        ? Edition.fromJson(json['edition'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.surahs != null) {
-      data['surahs'] = this.surahs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (surahs != null) {
+      data['surahs'] = surahs!.map((v) => v.toJson()).toList();
     }
-    if (this.edition != null) {
-      data['edition'] = this.edition!.toJson();
+    if (edition != null) {
+      data['edition'] = edition!.toJson();
     }
     return data;
   }
@@ -78,20 +78,20 @@ class Surahs {
     if (json['ayahs'] != null) {
       ayahs = <Ayahs>[];
       json['ayahs'].forEach((v) {
-        ayahs!.add(new Ayahs.fromJson(v));
+        ayahs!.add(Ayahs.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['number'] = this.number;
-    data['name'] = this.name;
-    data['englishName'] = this.englishName;
-    data['englishNameTranslation'] = this.englishNameTranslation;
-    data['revelationType'] = this.revelationType;
-    if (this.ayahs != null) {
-      data['ayahs'] = this.ayahs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['number'] = number;
+    data['name'] = name;
+    data['englishName'] = englishName;
+    data['englishNameTranslation'] = englishNameTranslation;
+    data['revelationType'] = revelationType;
+    if (ayahs != null) {
+      data['ayahs'] = ayahs!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -133,16 +133,16 @@ class Ayahs {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['number'] = this.number;
-    data['text'] = this.text;
-    data['numberInSurah'] = this.numberInSurah;
-    data['juz'] = this.juz;
-    data['manzil'] = this.manzil;
-    data['page'] = this.page;
-    data['ruku'] = this.ruku;
-    data['hizbQuarter'] = this.hizbQuarter;
-    data['sajda'] = this.sajda;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['number'] = number;
+    data['text'] = text;
+    data['numberInSurah'] = numberInSurah;
+    data['juz'] = juz;
+    data['manzil'] = manzil;
+    data['page'] = page;
+    data['ruku'] = ruku;
+    data['hizbQuarter'] = hizbQuarter;
+    data['sajda'] = sajda;
     return data;
   }
 }
@@ -174,13 +174,13 @@ class Edition {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['identifier'] = this.identifier;
-    data['language'] = this.language;
-    data['name'] = this.name;
-    data['englishName'] = this.englishName;
-    data['format'] = this.format;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['identifier'] = identifier;
+    data['language'] = language;
+    data['name'] = name;
+    data['englishName'] = englishName;
+    data['format'] = format;
+    data['type'] = type;
     return data;
   }
 }

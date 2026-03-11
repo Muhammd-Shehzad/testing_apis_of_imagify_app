@@ -10,7 +10,9 @@ class QuranRepository {
       dynamic response = await _myApiServices.getApiResponse(
         AppUrl.quranEndPoint,
       );
-      print('Quran Api Respons \n: $response');
+
+      print("API Response : $response");
+
       return response;
     } catch (e) {
       rethrow;

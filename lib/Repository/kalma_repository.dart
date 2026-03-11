@@ -7,9 +7,7 @@ class KalmaRepository {
 
   Future<dynamic> kalmaApi() async {
     try {
-      dynamic response = await _apiService.getApiResponse(
-        AppUrl.kamlaApiEndPoint,
-      );
+      dynamic response = await _apiService.getApiResponse(AppUrl.quranEndPoint);
       print(response);
       return response;
     } catch (e) {
